@@ -1,6 +1,6 @@
 <template>
   <span class="v-avatar" :style="styleSize" :aria-label="alt">
-  <span class="v-avatar-text" v-text="name" :style="{background: bg, color: fg}"></span>
+    <span class="v-avatar-text" v-text="name" :style="{background: bg, color: fg}"></span>
   </span>
 </template>
 <script>
@@ -34,22 +34,23 @@ export default {
     },
       //绑定头像中的文字为用户名的首字母大写
     name() {
-        if (!this.alt) {
-            return ''
-        }
-        return this.alt.charAt(0).toUpperCase()
+      if (!this.alt) {
+        return ''
+      }
+      return this.alt.charAt(0).toUpperCase()
     },
-      //支持生成不同尺寸的头像，根据传入的size生成相应的CSS STYLE
-    styleSize() {
-        if (!this.alt) return
 
-        var px = this.size + 'px'
-        return {
-            'weith': px,
-            'height': px,
-            'line-height':px,
-            'font-size': this.size /z +'px'
-        }
+    // 支持生成不同尺寸的头像，根据传入的 size 生成相应的 css style
+    styleSize() {
+      if (!this.size) return
+
+      var px = this.size + 'px'
+      return {
+        'weith': px,
+        'height': px,
+        'line-height': px,
+        'font-size': this.size / 2 + 'px'
+      }
     }
   },
 }
